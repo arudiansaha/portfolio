@@ -1,0 +1,26 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/variables' as variables;
+@use '../themes/theme' as theme;
+
+$light-primary-scheme: variables.$light-color-primary, variables.$light-color-text;
+$dark-primary-scheme: variables.$dark-color-primary, variables.$light-color-text;
+
+@mixin common {
+  @include mixins.reset-button;
+
+  padding-block: 1em;
+  padding-inline: 1.25em;
+  border-radius: 0.5rem;
+}
+
+@mixin primary($scheme: 'light') {
+  @include common;
+
+  @if $scheme =='light' {
+    @include theme.color-scheme($light-primary-scheme...);
+  }
+
+  @if $scheme =='dark' {
+    @include theme.color-scheme($dark-primary-scheme...);
+  }
+}

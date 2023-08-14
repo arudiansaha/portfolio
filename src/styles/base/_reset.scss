@@ -1,0 +1,62 @@
+@use './typography' as typography;
+@use '../abstracts/variables' as variables;
+@use '../themes/theme' as theme;
+
+$light-scheme: variables.$light-color-background, variables.$light-color-text;
+$dark-scheme: variables.$dark-color-background, variables.$dark-color-text;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include typography.font-sans;
+  @include typography.font-size('md');
+  @include theme.color-scheme($light-scheme...);
+
+  text-rendering: optimizeSpeed;
+}
+
+picture,
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include typography.font-sans(700);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @include theme.color-scheme($dark-scheme...);
+  }
+}

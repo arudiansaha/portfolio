@@ -1,0 +1,6 @@
+@use '../abstracts/variables' as variables;
+
+@mixin color-scheme($background-color, $color) {
+  background-color: $background-color;
+  color: $color;
+}
