@@ -4,7 +4,7 @@
 @use '../themes/theme' as theme;
 
 $light-scheme: variables.$light-color-primary, variables.$light-color-text;
-$dark-scheme: variables.$dark-color-primary, variables.$light-color-text;
+$dark-scheme: variables.$dark-color-primary, variables.$dark-color-text;
 
 .navbar {
   width: min(100% - 3rem);

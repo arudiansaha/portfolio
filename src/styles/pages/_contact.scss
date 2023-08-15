@@ -1,0 +1,66 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/variables' as variables;
+@use '../base/typography' as typography;
+
+.contact {
+  &__container {
+    width: min(100% - 3rem, 900px);
+    margin: auto;
+    text-align: center
+  }
+
+  &__title {
+    @include typography.font-sans(700);
+    @include typography.font-size('5xl');
+
+    &>a {
+      @include mixins.reset-link;
+
+      background-clip: text;
+      background-image: linear-gradient(30deg, variables.$light-color-primary, variables.$light-color-accent);
+      background-size: 400%;
+
+      animation: background-rotate 6000ms alternate;
+      animation-iteration-count: infinite;
+
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .contact {
+    &__title {
+      @include typography.font-size('7xl')
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact {
+    &__title {
+      &>a {
+        background-image: linear-gradient(30deg, variables.$dark-color-primary, variables.$dark-color-accent);
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact {
+    &__title {
+      @include typography.font-size('9xl')
+    }
+  }
+}
+
+@keyframes background-rotate {
+  0% {
+    background-position: left;
+  }
+
+  100% {
+    background-position: right;
+  }
+}
