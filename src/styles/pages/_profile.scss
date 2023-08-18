@@ -1,0 +1,7 @@
+.profile {
+  &__container {
+    width: min(100% - 3rem, 900px);
+    margin: auto;
+    text-align: center
+  }
+}

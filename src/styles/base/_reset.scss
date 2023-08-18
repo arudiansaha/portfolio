@@ -63,3 +63,11 @@ h6 {
     @include theme.color-scheme($dark-scheme...);
   }
 }
+
+.maintain {
+  @include typography.font-sans(700);
+  @include typography.font-size('3xl');
+
+  margin-block: auto;
+  text-align: center;
+}

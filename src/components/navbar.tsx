@@ -6,6 +6,7 @@ type NavbarPath = {
   href: string;
   value: string;
   icon: JSX.Element;
+  ariaLabel: string;
 }
 
 export default function Navbar() {
@@ -57,16 +58,19 @@ export default function Navbar() {
       href: '/',
       value: 'Work',
       icon: briefcaseIcon,
+      ariaLabel: 'get to know about my work',
     },
     {
       href: '/profile',
       value: 'Profile',
       icon: userIcon,
+      ariaLabel: 'get to know about me',
     },
     {
       href: '/contact',
       value: 'Contact',
       icon: atIcon,
+      ariaLabel: 'for more information, please contact me'
     },
   ]
 
@@ -80,6 +84,7 @@ export default function Navbar() {
       <Link
         className={page === path.href ? 'active' : ''}
         href={path.href}
+        aria-label={path.ariaLabel}
       >
         {path.icon}
         <span>{path.value}</span>

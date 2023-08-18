@@ -4,6 +4,7 @@ type FooterSocial = {
   href: string;
   value: string;
   icon: JSX.Element;
+  ariaLabel: string;
 }
 
 export default function Footer() {
@@ -38,17 +39,21 @@ export default function Footer() {
       href: 'https://github.com/arudiansaha',
       value: 'GitHub',
       icon: githubIcon,
+      ariaLabel: 'go to github profile',
     },
     {
       href: 'https://linkedin.com/in/ky-ardiansyah',
       value: 'LinkedIn',
       icon: linkedinIcon,
+      ariaLabel: 'go to linkedin profile',
     },
   ]
 
   const listElement = socials.map((social, index) => (
     <li key={index} className="footer__item">
-      <Link href={social.href}>{social.icon} <span>{social.value}</span></Link>
+      <Link href={social.href} aria-label={social.ariaLabel}>
+        {social.icon} <span>{social.value}</span>
+      </Link>
     </li>
   ))
 
